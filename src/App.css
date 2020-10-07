@@ -292,6 +292,7 @@
   border-bottom: 1px solid#E6ECF0;
   border-right: 1px solid#E6ECF0;
   background-color: #fff;
+  z-index: 21;
 }
 .tweet__home .sidebar__logo {
   display: none;
@@ -432,11 +433,11 @@
   align-items: center;
   cursor: pointer;
 }
+.post__first_container_profile{
+  z-index: 1;
+}
 .post__first_container:hover {
   background-color: #f5f8fa;
-}
-.post__first_container_profile{
-  z-index: 22121;
 }
 
 /* =============== trends ============ */

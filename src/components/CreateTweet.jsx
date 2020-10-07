@@ -24,7 +24,7 @@ const CreateTweet = ({ username }) => {
   const fileCaptionHandler = event => {
     event.preventDefault();
     // check file exits or not
-    if (!file == null) {
+    if (file !== null) {
       const uploadTask = storage.ref(`images/${file.name}`).put(file);
       uploadTask.on(
         //'state_changed' observer, called any time the state changes
@@ -34,7 +34,7 @@ const CreateTweet = ({ username }) => {
             (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log("Upload is " + progress + "% done");
           setProgress(progress);
-          console.log(file);
+          console.log("inside function")
         },
         error => {
           // Handle unsuccessful uploads
@@ -67,7 +67,6 @@ const CreateTweet = ({ username }) => {
         caption: caption,
         username: username
       });
-      console.log(file);
       setProgress(0);
       setCaption("");
     }
