@@ -1,38 +1,725 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Lato", sans-serif;
+}
 .App {
-  text-align: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* =========== createAccount ============ */
+.create__account {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.create__account_left {
+  flex-basis: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("./components/signUp.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.create__account_left_heading {
+  margin: 0 auto;
+}
+.create__account_left svg {
+  margin-right: 10px;
+}
+.create__account_left h2 {
+  color: #fff;
+  margin: 40px 0;
+}
+.create__account_right {
+  flex-basis: 50%;
+  width: 100%;
+  height: 100vh;
+}
+.create__account_logIn_form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+}
+.create__account_logIn_input {
+  margin: 0 10px;
+  padding: 15px 15px;
+  font-size: 15px;
+  background-color: #f5f8fa;
+  border: none;
+  outline: none;
+  border-bottom: 2px solid #1da1f2;
+}
+.create__account_logIn_btn {
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: 1px solid #1da1f2;
+  outline: none;
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  color: #1da1f2;
+  transition: 0.3s all ease-in;
+  cursor: pointer;
+}
+.create__account_logIn_btn:hover {
+  background-color: #e8f5fe;
+}
+.create__account_right_heading {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 180px;
+  margin-top: 100px;
+}
+.create__account_right_heading h1 {
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  line-height: 45px;
+}
+.create__account_right_heading_logo {
+  font-size: 40px;
+  color: #1da1f2;
+  margin: 5px 0;
+}
+.signUp__signIn_btn {
+  display: flex;
+  flex-direction: column;
+  margin: 50px 180px;
+}
+.signUp__signIn_btn span {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+.signUp__signIn_btn_signup {
+  padding: 10px 0;
+  border-radius: 20px;
+  margin: 10px 0;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  color: #fff;
+  border: none;
+  background-color: #1da1f2;
+  transition: 0.3s all ease-in;
+  cursor: pointer;
+}
+.signUp__signIn_btn_signup:hover {
+  background-color: #1a91da;
 }
 
-.App-link {
-  color: #61dafb;
+.signUp__signIn_btn_login {
+  padding: 10px 0;
+  border-radius: 20px;
+  margin: 10px 0;
+  outline: none;
+  font-size: 15px;
+  font-weight: 600;
+  border: 2px solid #1da1f2;
+  background-color: #fff;
+  color: #1a91da;
+  cursor: pointer;
+}
+.signUp__signIn_btn_login:hover {
+  background-color: #e8f5fe;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* =============== authentication modal sign up and sign in ================ */
+.signUp {
+  width: 400px;
+  background-color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  outline: none;
+}
+.signUp__modal_logo {
+  font-size: 55px;
+  color: #1da1f2;
+  margin: 40px auto 0 auto;
+}
+.signUp__form {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 50px;
+}
+.signUp__form input {
+  border: 1px solid lightgray;
+  background-color: #fafafa;
+  padding: 8px 5px;
+  margin-bottom: 15px;
+  outline: none;
+  letter-spacing: 0.4px;
+}
+.signUp__form .signUp__submit_btn {
+  background-color: #1da1f2;
+  color: #fff;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  font-size: 14px;
+  margin-bottom: 20px;
+  outline: none;
+  border: none;
+}
+
+/* ================= home page loading ============ */
+.homePageLoading {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* =========== sidebar =========== */
+.sidebar {
+  display: flex;
+  flex-basis: 25%;
+  flex-direction: column;
+  align-items: center;
+  border-right: 2px solid #e6ecf0;
+  position: fixed;
+  width: 25%;
+  height: 100vh;
+}
+.sidebar__logo {
+  font-size: 35px;
+  color: #1da1f2;
+  margin: 10px;
+  margin-right: 100px;
+}
+.sidebar__lists li {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  list-style: none;
+  padding: 10px;
+  transition: 0.5s all ease-in-out;
+}
+.sidebar__lists li a {
+  text-decoration: none;
+  font-weight: 1000;
+  font-size: 18px;
+}
+.sidebar__icons {
+  font-size: 28px;
+  margin-right: 14px;
+}
+.sidebar__home {
+  color: #1da1f2;
+}
+.sidebar__lists li:hover {
+  background-color: #e8f5fe;
+  border-radius: 50px;
+}
+.sidebar__btn {
+  padding: 20px 80px;
+  border-radius: 50px;
+  background-color: #1da1f2;
+  color: #fff;
+  outline: none;
+  border: none;
+  margin-top: 5px;
+  margin-left: 50px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+}
+.sidebar__logOut_btn {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  padding: 8px;
+  border-radius: 20px;
+  transition: 0.3s all ease-in;
+}
+.sidebar__logOut_btn_avatar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5px;
+}
+.sidebar__logOut_btn_avatar span {
+  color: #7e8d99;
+  font-weight: 600;
+}
+.sidebar__logOut_btn:hover {
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+}
+.sidebar__logOut_btn button {
+  padding: 12px 18px;
+  border: 1px solid #1a91da;
+  outline: none;
+  border-radius: 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.sidebar__logOut_btn span {
+  margin: 0 8px;
+  font-size: 14px;
+}
+/* ================ tweet ============== */
+
+.tweet {
+  flex-basis: 50%;
+  margin-left: 25%;
+}
+.tweet__home {
+  display: flex;
+  align-items: center;
+  width: 50%;
+  position: fixed;
+  padding: 15px;
+  font-size: 20px;
+  font-weight: 800;
+  border-bottom: 1px solid#E6ECF0;
+  border-right: 1px solid#E6ECF0;
+  background-color: #fff;
+}
+.tweet__home .sidebar__logo {
+  display: none;
+}
+/* ============= create tweet ============= */
+
+.create__tweet {
+  width: 100%;
+  height: 125px;
+  margin-top: 60px;
+  border-bottom: 2px solid #e6ecf0;
+  border-right: 1px solid#E6ECF0;
+}
+.create__tweet_form {
+  display: flex;
+  align-content: center;
+  padding-left: 20px;
+}
+.create__tweet_form label {
+  z-index: -23;
+}
+.create__tweet_form_input {
+  border: none;
+  font-size: 20px;
+  padding-left: 15px;
+}
+.create__tweet_form_input:hover {
+  border: none;
+  outline: none;
+}
+.create__tweet_icons_btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.create__tweet_icons_btn button {
+  cursor: pointer;
+}
+.create__container_icons_list {
+  margin: 10px 80px;
+  flex-basis: 70%;
+}
+.create__container_icons_list input {
+  display: none;
+}
+.create__tweet_icons {
+  font-size: 42px;
+  color: #1da1f2;
+  padding: 0 10px;
+  transition: 0.4s all ease-in-out;
+  /* background-color: red; */
+}
+.create__tweet_icons:hover {
+  cursor: pointer;
+  background-color: #e8f5fe;
+  border-radius: 50px;
+}
+.create__tweet_btn {
+  flex-basis: 30%;
+  margin: 0 15px;
+}
+.create__tweet_btn input {
+  padding: 12px 22px;
+  border: none;
+  outline: none;
+  color: #fff;
+  font-weight: 800;
+  font-size: 14px;
+  border-radius: 50px;
+  background-color: #8ed0f8;
+  cursor: pointer;
+}
+.file__uploader_progress {
+  width: 100%;
+}
+/* ============ posts ========== */
+.post {
+  width: 100%;
+}
+.post__first_container {
+  border-bottom: 2px solid #e6ecf0;
+  transition: 0.3s all ease-in-out;
+  border-right: 1px solid#E6ECF0;
+}
+.post__first_container_info {
+  display: flex;
+  align-items: center;
+  padding: 12px 12px 0 12px;
+}
+.post__first_container_profile {
+  width: 55px;
+  height: 55px;
+  border-radius: 50px;
+  z-index: -21;
+}
+.post_first_container_verify {
+  color: #1da1f2;
+  margin-left: 3px;
+}
+.post__first_container_username {
+  margin-left: 8px;
+}
+.post__first_container_userid {
+  margin-left: 5px;
+  color: #96a3ad;
+}
+.post__first_container_time {
+  color: #96a3ad;
+}
+.post__first__container_title {
+  color: #525558;
+  margin-left: 60px;
+  margin-bottom: 15px;
+}
+.post__first_container_img {
+  margin: 12px;
+  text-align: center;
+}
+.post__first_container_img img {
+  width: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+}
+.post__first_container_icons_list {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 8px;
+}
+.post__first_container_icons {
+  font-size: 18px;
+  margin: 0 4px;
+  cursor: pointer;
+}
+.post__first_container_icons_list span {
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.post__first_container:hover {
+  background-color: #f5f8fa;
+}
+.post__first_container_profile{
+  z-index: 22121;
+}
+
+/* =============== trends ============ */
+.trends {
+  flex-basis: 25%;
+  position: fixed;
+  margin-left: 75%;
+  width: 25%;
+  height: 100vh;
+}
+.trends__input input {
+  margin: 10px;
+  width: 80%;
+  padding: 15px 45px;
+  border-radius: 50px;
+  background-color: #e6ecf0;
+  border: none;
+  outline: none;
+  font-size: 15px;
+  position: relative;
+}
+.trends__input_icon {
+  position: absolute;
+  top: 26px;
+  left: 21px;
+  z-index: 1;
+  color: #7e8d99;
+}
+
+/* ============= trends keyword ========== */
+
+.trends__keyword {
+  width: 90%;
+  margin: 30px 20px;
+  border-radius: 20px;
+  background-color: #f5f8fa;
+}
+.trends__for_you {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 2px solid #e6ecf0;
+}
+.trends__for_you span {
+  font-size: 17px;
+  font-weight: 600;
+}
+.trends__for_you_icon {
+  font-size: 20px;
+  color: #1da1f2;
+  cursor: pointer;
+}
+.trending__keyword {
+  padding: 15px;
+  border-bottom: 2px solid #e6ecf0;
+  transition: 0.2s all ease-in-out;
+}
+.trending__keyword:hover {
+  background-color: #e6ecf0;
+}
+.trending__country {
+  font-size: 13px;
+  color: #7e8d99;
+}
+.trending__country_keyword {
+  font-size: 16px;
+  font-weight: 600;
+  margin: 6px 0;
+}
+.trending__tweets {
+  font-size: 13px;
+  color: #7e8d99;
+}
+.showmore__link {
+  padding: 15px;
+  width: 100%;
+  transition: 0.2s all ease-in-out;
+}
+.showmore__link a {
+  text-decoration: none;
+  color: #1da1f2;
+  width: 100%;
+}
+
+.showmore__link:hover {
+  background-color: #e6ecf0;
+}
+
+/* =============== responsive design ============== */
+
+@media screen and (max-width: 1165px) {
+  .sidebar {
+    display: flex;
+    flex-basis: 20%;
+    width: 25%;
   }
-  to {
-    transform: rotate(360deg);
+  .tweet {
+    flex-basis: 45%;
+    margin-left: 25%;
+  }
+  .trends {
+    flex-basis: 30%;
+    margin-left: 70%;
+    width: 25%;
+  }
+  .create__tweet {
+    width: 100%;
+  }
+  .tweet__home {
+    width: 45%;
+  }
+  .create__container_icons_list {
+    margin: 10px 40px;
+  }
+  .sidebar__btn {
+    padding: 20px 80px;
+    margin-left: 5px;
+  }
+}
+
+@media screen and (max-width: 940px) {
+  .sidebar {
+    display: flex;
+    flex-basis: 35%;
+    width: 35%;
+  }
+  .tweet {
+    flex-basis: 65%;
+    margin-left: 35%;
+  }
+  .trends {
+    display: none;
+  }
+  .tweet__home {
+    width: 65%;
+  }
+  .create__account_left {
+    flex-basis: 0;
+    width: 0;
+  }
+  .create__account_right {
+    flex-basis: 100%;
+  }
+}
+@media screen and (max-width: 700px) {
+  .sidebar {
+    display: flex;
+    flex-basis: 20%;
+    width: 20%;
+  }
+  .tweet {
+    flex-basis: 80%;
+    margin-left: 20%;
+  }
+  .tweet__home {
+    width: 43%;
+    border: none;
+  }
+  .sidebar__lists li a {
+    display: none;
+  }
+  .sidebar__logo {
+    margin: 10px;
+  }
+  .sidebar__btn {
+    padding: 15px 20px;
+    margin-left: 2px;
+  }
+  .sidebar__logOut_btn {
+    position: fixed;
+    top: -3px;
+    right: 0;
+    margin: 0px;
+    border-radius: 0;
+    flex-direction: row;
+    background-color: #fff;
+  }
+  .sidebar__logOut_btn_avatar {
+    margin-left: 80px;
+  }
+  .create__account_right_heading h1 {
+    font-size: 25px;
+  }
+  .create__account_right_heading {
+    padding: 20px;
+  }
+  .create__account_right_heading_logo {
+    margin-left: 20px;
+  }
+}
+@media screen and (max-width: 560px) {
+  .sidebar {
+    display: flex;
+    flex-basis: 10%;
+    width: 10%;
+  }
+  .tweet {
+    flex-basis: 90%;
+    margin-left: 10%;
+  }
+  .tweet__home {
+    width: 45%;
+    border: none;
+  }
+  .sidebar__lists li a {
+    display: none;
+  }
+  .sidebar__logo {
+    margin: 10px;
+  }
+  .sidebar__btn {
+    display: none;
+  }
+  .create__account_logIn_form {
+    flex-direction: column;
+  }
+  .create__account_logIn_input {
+    margin-bottom: 10px;
+  }
+  .create__account_right_heading {
+    margin-top: 10px;
+  }
+  .signUp__signIn_btn{
+    width: 90%;
+    margin: 20px 20px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .sidebar {
+    flex-basis: 0%;
+    border: none;
+  }
+  .sidebar__logo {
+    display: none;
+  }
+  .sidebar__lists {
+    margin-top: 60px;
+  }
+  .sidebar__icons {
+    font-size: 0;
+  }
+  .sidebar__lists ul li {
+    margin: 0;
+  }
+  .tweet {
+    flex-basis: 100%;
+    margin-left: 0%;
+  }
+  .tweet__home {
+    padding: 2px;
+    width: 47%;
+  }
+  .tweet__home .sidebar__logo {
+    display: inline;
+    font-size: 30px;
+  }
+  .create__container_icons_list {
+    margin: 10px 5px;
+  }
+  .create__tweet_icons {
+    font-size: 38px;
+  }
+  .create__container_icons_list {
+    flex-basis: 85%;
+  }
+  .create__tweet_btn {
+    flex-basis: 15%;
+  }
+  .create__tweet_btn input {
+    padding: 8px 10px;
+  }
+  .file__uploader_progress {
+    width: 50%;
+    margin-left: 28%;
+  }
+}
+@media screen and (max-width: 390px) {
+  .tweet__home {
+    width: 37%;
+  }
+  .sidebar__logOut_btn_avatar {
+    margin-left: 42px;
   }
 }
